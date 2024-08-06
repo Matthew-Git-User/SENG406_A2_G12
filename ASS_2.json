@@ -31,8 +31,8 @@
                 "text": "Dog owner"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -46,71 +46,59 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "be354766-114b-4e54-8ee9-cc859823d96a",
+                  "title": "Spoofed Phishing Email",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "A Malicious Actor could create an email with a fake invoice that the user would then send money to instead of the council.",
+                  "mitigation": "- The PDF containing the invoice could be instead accessed through the register web service (behind authentication)\n- The payment could be handled on site rather than through an emailed invoice\n- Users could be trained to identify phishing emails (Teach them to only read expected emails)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "cb896921-2948-4de1-9275-d1e8a7670c43",
+                  "title": "Denial of Tag Receival",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "The Dog Owner could deny receiving the tag from the council and force a refund",
+                  "mitigation": "- Council could photograph delivery\n- Council could require a signature on delivery\n- Internal logs for delivery",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": ""
+                }
+              ]
             }
           },
           {
             "position": {
-              "x": 750,
-              "y": 40
+              "x": 800,
+              "y": 90
             },
             "size": {
-              "width": 120,
+              "width": 140,
               "height": 60
             },
             "attrs": {
               "text": {
-                "text": "User datastore"
+                "text": "User & Dog Database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "store",
-            "zIndex": 4,
-            "id": "1b3adb7b-1e32-4e7a-8c0b-987a316b0542",
-            "data": {
-              "type": "tm.Store",
-              "name": "User datastore",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isALog": false,
-              "isEncrypted": false,
-              "isSigned": false,
-              "storesCredentials": false,
-              "storesInventory": false,
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 750,
-              "y": 140
-            },
-            "size": {
-              "width": 120,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Dog datastore"
-              },
-              "topLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              },
-              "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -120,17 +108,31 @@
             "id": "8e38aa8b-fd64-4414-bf0b-82c8e69ad93f",
             "data": {
               "type": "tm.Store",
-              "name": "Dog datastore",
+              "name": "User & Dog Database",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "1505d15e-a89f-4d3c-be25-afaa58639088",
+                  "title": "Weak Database Password",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious actor with access to the database could read / write to the database via a brute force attack on the password",
+                  "mitigation": "- Given the nature of the infrastructure, the database could accept only inbound connections from the machines hosting the dog registration processes\n- Alongside this, use a strong password on database connection\n- Don't expose the database address / port outside of the trusted network",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -171,230 +173,35 @@
             }
           },
           {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
+            "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
             "zIndex": 10,
             "connector": "smooth",
             "data": {
-              "type": "tm.Flow",
-              "name": "User and dog details",
+              "type": "tm.Boundary",
+              "name": "",
               "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
             },
-            "id": "fb44063f-c50c-40c0-bae2-9bfc97fbc6a5",
-            "labels": [
-              "User and dog details"
-            ],
+            "id": "f3fff423-1f0b-408a-9d3d-bb041916f2d4",
             "source": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+              "x": 750,
+              "y": -30
             },
             "target": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+              "x": 630,
+              "y": 320
             },
             "vertices": [
               {
-                "x": 360,
-                "y": 90
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Dog details",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "408a0665-3802-4559-be2f-b72c80e76a3d",
-            "labels": [
-              "Dog details"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "8e38aa8b-fd64-4414-bf0b-82c8e69ad93f"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Confirmation email",
-              "description": "Contains invoice ",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
-            "labels": [
-              "Confirmation email"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
-            },
-            "vertices": [
+                "x": 620,
+                "y": 70
+              },
               {
-                "x": 360,
-                "y": 123
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "User details",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "31302c7d-b8e6-44f8-bd79-167ed0d56551",
-            "labels": [
-              "User details"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "1b3adb7b-1e32-4e7a-8c0b-987a316b0542"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Tag delivery",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "4b49ff1d-6ee4-42f8-8061-a317379bac4b",
-            "labels": [
-              "Tag delivery"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
-            },
-            "vertices": [
-              {
-                "x": 350,
-                "y": 180
+                "x": 590,
+                "y": 190
               }
             ]
           },
@@ -466,6 +273,134 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
+              "name": "Tag delivery",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "4b49ff1d-6ee4-42f8-8061-a317379bac4b",
+            "labels": [
+              "Tag delivery"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "vertices": [
+              {
+                "x": 350,
+                "y": 180
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "User and dog details",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "b69d72e7-01ce-40f7-9343-b22383b5d951",
+                  "title": "Endpoint Denial of Service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A Malicious actor could exhaust system resources by thrashing the register endpoint with requests. Each of these requests block up the system providing a denial of service for other consumers",
+                  "mitigation": "- By observing excess usage of the register endpoint, the system could block / throttle requests from a given IP address\n- Restrict each email to a single register request and have follow up requests for registering dogs, after a confirmation of email",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": ""
+                },
+                {
+                  "id": "c6e234e5-b847-4d86-abfc-64502a09cf6f",
+                  "title": "Adversary in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious user could read inbound requests to the server to identify names and locations of users / dog owners",
+                  "mitigation": "Encrypt all requests across public networks with HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "fb44063f-c50c-40c0-bae2-9bfc97fbc6a5",
+            "labels": [
+              "User and dog details"
+            ],
+            "source": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "target": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "vertices": [
+              {
+                "x": 320,
+                "y": 90
+              },
+              {
+                "x": 410,
+                "y": 90
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
               "name": "Invoice Details + Payment",
               "description": "Reference : Registration Number\nMoney",
               "outOfScope": false,
@@ -478,6 +413,9 @@
               "threats": []
             },
             "id": "2b204d8c-79a2-41d4-b63c-54854fd2317a",
+            "labels": [
+              "Invoice Details + Payment"
+            ],
             "source": {
               "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
             },
@@ -493,9 +431,69 @@
                 "x": 250,
                 "y": -40
               }
-            ],
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Confirmation email",
+              "description": "Contains invoice ",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "01fdfce3-7270-48e6-bee4-e3e162de2f07",
+                  "title": " Data Manipulation: Transmitted Data Manipulation ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "During transit, the email could be altered by a malicious actor to change the banking details that the user will submit the money to",
+                  "mitigation": "Data in transit should be encrypted using a protocol such as HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
             "labels": [
-              "Invoice Details + Payment"
+              "Confirmation email"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "vertices": [
+              {
+                "x": 240,
+                "y": 123
+              }
             ]
           },
           {
@@ -530,6 +528,9 @@
               "threats": []
             },
             "id": "a5131333-58eb-436b-a5b1-1b911069c75f",
+            "labels": [
+              "Payment Ack"
+            ],
             "source": {
               "x": 400,
               "y": -130
@@ -543,9 +544,69 @@
                 "x": 510,
                 "y": -60
               }
-            ],
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Registration Details",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "8f5ac43f-95c1-48b7-a52e-9a6b46a0e7a3",
+                  "title": "Adversary in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could install hardware on the council network to monitor requests between the registration process and the database.  This data could then be forwarded outside of the network via HTTPS / Bluetooth or other process",
+                  "mitigation": "- Encryption between processes on a network (even if the network is mostly trusted)\n- Network monitoring and logging (Awareness of unexpected outbound requests)\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "408a0665-3802-4559-be2f-b72c80e76a3d",
             "labels": [
-              "Payment Ack"
+              "Registration Details"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "8e38aa8b-fd64-4414-bf0b-82c8e69ad93f"
+            },
+            "vertices": [
+              {
+                "x": 750,
+                "y": 123
+              }
             ]
           },
           {
@@ -567,8 +628,8 @@
               "y": -90
             },
             "target": {
-              "x": 460,
-              "y": 310
+              "x": 470,
+              "y": 330
             },
             "vertices": [
               {
@@ -578,39 +639,6 @@
               {
                 "x": 440,
                 "y": 220
-              }
-            ]
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "id": "f3fff423-1f0b-408a-9d3d-bb041916f2d4",
-            "source": {
-              "x": 750,
-              "y": -30
-            },
-            "target": {
-              "x": 630,
-              "y": 320
-            },
-            "vertices": [
-              {
-                "x": 620,
-                "y": 70
-              },
-              {
-                "x": 590,
-                "y": 190
               }
             ]
           },
@@ -641,7 +669,7 @@
           {
             "position": {
               "x": 447.5,
-              "y": 230
+              "y": 210
             },
             "size": {
               "width": 112.5,
@@ -676,24 +704,38 @@
                 "text": "Council Bank Account"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "actor",
-            "id": "5f986dd9-30d1-4b17-a7a3-7df6410da34e",
             "zIndex": 13,
+            "id": "5f986dd9-30d1-4b17-a7a3-7df6410da34e",
             "data": {
               "type": "tm.Actor",
               "name": "Council Bank Account",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "5918a17d-fdf4-4c8c-9e90-18248f6a1932",
+                  "title": "Impersonation of bank account",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "A malicious user could impersonate the banking service and send false acknowledgement of payment to the councils registration process",
+                  "mitigation": "Message passing between the bank account and the councils processes should be handled over an encrypted connection with a signed certificate to authenticate the request as originating from the bank acc",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": ""
+                }
+              ]
             }
           }
         ],
@@ -2842,6 +2884,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 21
   }
 }
