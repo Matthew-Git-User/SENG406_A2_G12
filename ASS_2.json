@@ -2447,8 +2447,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb",
             "zIndex": 1,
+            "id": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb",
             "data": {
               "type": "tm.Process",
               "name": "Report Dog",
@@ -2495,6 +2495,9 @@
               "threats": []
             },
             "id": "82bca5e0-b492-4e47-9e7f-19a667622a2c",
+            "labels": [
+              "Dog Details"
+            ],
             "source": {
               "cell": "25c0a57f-c13b-439e-a417-7c494b3078cc"
             },
@@ -2506,9 +2509,6 @@
                 "x": 360,
                 "y": 270
               }
-            ],
-            "labels": [
-              "Dog Details"
             ]
           },
           {
@@ -2566,6 +2566,9 @@
               "threats": []
             },
             "id": "7941eedd-c87c-4590-9efe-10513ce1c207",
+            "labels": [
+              "Dog found ack"
+            ],
             "source": {
               "cell": "29e3097a-dc04-4409-9068-4109b6ecb709"
             },
@@ -2577,9 +2580,6 @@
                 "x": 430,
                 "y": 420
               }
-            ],
-            "labels": [
-              "Dog found ack"
             ]
           },
           {
@@ -2614,15 +2614,15 @@
               "threats": []
             },
             "id": "114f58e1-9f17-4a65-98a9-e587ff92faf5",
+            "labels": [
+              "Council sends dog service to dog"
+            ],
             "source": {
               "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
             },
             "target": {
               "cell": "29e3097a-dc04-4409-9068-4109b6ecb709"
-            },
-            "labels": [
-              "Council sends dog service to dog"
-            ]
+            }
           },
           {
             "shape": "flow",
@@ -2656,15 +2656,38 @@
               "threats": []
             },
             "id": "8a8469ac-6606-4707-9b70-6198129e0ee7",
+            "labels": [
+              "Council contacts owner"
+            ],
             "source": {
               "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
             },
             "target": {
               "cell": "9569f18c-162a-4a32-84a4-ddb81ddd2d3f"
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
             },
-            "labels": [
-              "Council contacts owner"
-            ]
+            "id": "070fb0e4-2ebb-4d0a-a90e-fb4eb0c988ff",
+            "source": {
+              "x": 580,
+              "y": 80
+            },
+            "target": {
+              "x": 540,
+              "y": 490
+            }
           },
           {
             "shape": "flow",
@@ -2698,53 +2721,16 @@
               "threats": []
             },
             "id": "fe31a55c-0e14-4745-bea2-a2bc1de0dbc1",
+            "labels": [
+              "Update dog status"
+            ],
             "source": {
               "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
             },
             "target": {
               "cell": "16cd2e91-8b45-4e65-a7c6-bb5963e179f2"
             },
-            "labels": [
-              "Update dog status"
-            ]
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "id": "070fb0e4-2ebb-4d0a-a90e-fb4eb0c988ff",
-            "source": {
-              "x": 580,
-              "y": 80
-            },
-            "target": {
-              "x": 540,
-              "y": 490
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            "vertices": []
           },
           {
             "position": {
@@ -2767,8 +2753,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "25c0a57f-c13b-439e-a417-7c494b3078cc",
             "zIndex": 11,
+            "id": "25c0a57f-c13b-439e-a417-7c494b3078cc",
             "data": {
               "type": "tm.Actor",
               "name": "Member of\nPublic",
@@ -2801,8 +2787,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "29e3097a-dc04-4409-9068-4109b6ecb709",
             "zIndex": 12,
+            "id": "29e3097a-dc04-4409-9068-4109b6ecb709",
             "data": {
               "type": "tm.Actor",
               "name": "Dog services",
@@ -2835,8 +2821,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "9569f18c-162a-4a32-84a4-ddb81ddd2d3f",
             "zIndex": 13,
+            "id": "9569f18c-162a-4a32-84a4-ddb81ddd2d3f",
             "data": {
               "type": "tm.Actor",
               "name": "Owner",
@@ -2862,31 +2848,86 @@
                 "text": "Council database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
-            "id": "16cd2e91-8b45-4e65-a7c6-bb5963e179f2",
             "zIndex": 14,
+            "id": "16cd2e91-8b45-4e65-a7c6-bb5963e179f2",
             "data": {
               "type": "tm.Store",
               "name": "Council database",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "80f26802-3638-49f5-b92a-9bbfcfbdc144",
+                  "title": "Manipulation of Database Queries",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Possibility for injection attacks such as SQL injections to modify queries allowing for unauthorised data manipulation including removing/retrieving sensitive data.",
+                  "mitigation": "* Use input validation to ensure that harmful sql queries can't be submitted.\n* Regular audits to check for unauthorised changes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": ""
+                },
+                {
+                  "id": "37f83776-eb77-4079-b89f-cb7e2b85cf45",
+                  "title": "Lack of Access Logs",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "If transactions to the database are not tracked properly users could deny accessing sensitive data such as the personal details of dog owners and addresses of members of the public.",
+                  "mitigation": "* Ensure comprehensive logging of queries and actions interacting with the database. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                },
+                {
+                  "id": "bc5f0fe8-da74-4a4e-b7e5-2a9594c72a24",
+                  "title": "Unauthorised Access to Sensitive Data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "If there are weak access controls to the database there could be unauthorised access to the sensitive information.",
+                  "mitigation": "* Enforce strict access controls\n* Encrypt sensitive data stored in the database",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                },
+                {
+                  "id": "52d8258f-af87-456e-91e8-182bf25ca3c7",
+                  "title": "Request Flooding",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Overwhelming the database with requests could cause it to become slow or unresponsive.",
+                  "mitigation": "* Implement rate limiting",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -2905,8 +2946,8 @@
             },
             "visible": true,
             "shape": "td-text-block",
-            "id": "405391af-ee3e-41e3-a333-116bca851558",
             "zIndex": 15,
+            "id": "405391af-ee3e-41e3-a333-116bca851558",
             "data": {
               "type": "tm.Text",
               "name": "Read / Write access",
@@ -2929,8 +2970,8 @@
             },
             "visible": true,
             "shape": "td-text-block",
-            "id": "803e5b0d-4411-4992-8277-a4e03ae994b3",
             "zIndex": 16,
+            "id": "803e5b0d-4411-4992-8277-a4e03ae994b3",
             "data": {
               "type": "tm.Text",
               "name": "Secure council \ninfrastructure",
@@ -2943,6 +2984,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 37
+    "threatTop": 42
   }
 }
