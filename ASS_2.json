@@ -1970,27 +1970,54 @@
                 "text": "Declare Lost Dog"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
-            "id": "4f93c914-eea0-47d8-9c0a-b8c1bceb4acc",
             "zIndex": 1,
+            "id": "4f93c914-eea0-47d8-9c0a-b8c1bceb4acc",
             "data": {
               "type": "tm.Process",
               "name": "Declare Lost Dog",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "6e493124-78a5-4af3-a538-bb9c7c8c3fc5",
+                  "title": "Deny declaring Dog Lost",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A malicious owner could claim to have not previously declared their dog lost.",
+                  "mitigation": "- Keep logs for all requests to declare a dog lost including the IP address and any other metadata that could identify a user",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 48,
+                  "score": ""
+                },
+                {
+                  "id": "683002ac-09cd-4fc5-a1a6-b77bb19d688b",
+                  "title": "Escalation of Privilege to Send Requests",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "A malicious user could gain access to unsecured endpoints on the web application and escalate their privileges allowing them to send malicious requests to the database.",
+                  "mitigation": "- Ensure all important endpoints are secured with a password\n- Prevent unauthorised users from accessing endpoints by only allowing access from inside Council infrastructure with a Council IP",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 56,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -2007,31 +2034,59 @@
                 "text": "Owner"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "actor",
-            "id": "cc1abc8a-f656-42a0-accc-dea7d2e7df43",
             "zIndex": 2,
+            "id": "cc1abc8a-f656-42a0-accc-dea7d2e7df43",
             "data": {
               "type": "tm.Actor",
               "name": "Owner",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "e3ca4811-1f31-48e7-94b3-ef054af72169",
+                  "title": "Declare Another User's Dog Lost",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "A malicious actor could declare another user's dog lost using stolen, guessed, or made up credentials.",
+                  "mitigation": "- Enforce a password or form of multi-factor authentication such as a link in the confirmation email\n- Don't provide any information to the user if an incorrect email or dog name is entered",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 52,
+                  "score": ""
+                },
+                {
+                  "id": "c6512477-adec-4433-b5d9-faec0bc6fc2d",
+                  "title": "User Claims to have Declared Dog Lost",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A user could claim to have declared another user's dog lost in order to obtain information about that user.",
+                  "mitigation": "- Log details of all requests to declare a dog lost including IP address and any metadata\n- Keep records of all confirmation emails sent",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 53,
+                  "score": ""
+                }
+              ]
             }
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2051,14 +2106,44 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "48cba4fa-e505-4cf6-81a2-b604cac714b6",
+                  "title": "Declare Lost Dog DDOS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Malicious actors could flood the server with repeat reports of lost dogs.",
+                  "mitigation": "- Limit the number of requests from each IP address and monitor and block repeat requests from a single IP address\n- Use a CDN to prevent the Council infrastructure from being overloaded by requests",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 44,
+                  "score": ""
+                },
+                {
+                  "id": "6c07beae-2c7f-48d1-967a-302ca71f5a0a",
+                  "title": "Adversary in the Middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could listen on the connection when an owner declares a dog lost and obtain the user's email address and the dog's name.",
+                  "mitigation": "Use TLS and HTTPS to protect the connection from attackers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 45,
+                  "score": ""
+                }
+              ]
             },
             "id": "a9437199-c799-4fcc-9c22-a02efa37b20a",
+            "labels": [
+              "Email/Dog's Name"
+            ],
             "source": {
               "cell": "cc1abc8a-f656-42a0-accc-dea7d2e7df43"
             },
@@ -2067,19 +2152,21 @@
             },
             "vertices": [
               {
+                "x": 320,
+                "y": 290
+              },
+              {
                 "x": 340,
                 "y": 290
               }
-            ],
-            "labels": [
-              "Email/Dog's Name"
             ]
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2099,14 +2186,31 @@
               "description": "Dog's lost status, last known tag ID",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "c27a7414-4d42-4d71-9032-8f00258459c9",
+                  "title": "Sending Incorrect or Malicious Confirmation Email",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious actor could tamper with the confirmation email sent to the user to include incorrect data or malicious links.",
+                  "mitigation": "Use TLS and HTTPS to prevent malicious actors from intercepting and tampering with the confirmation email.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 50,
+                  "score": ""
+                }
+              ]
             },
             "id": "7384f5d6-0497-4ff7-961f-6b372712d807",
+            "labels": [
+              "Confirmation Email"
+            ],
             "source": {
               "cell": "4f93c914-eea0-47d8-9c0a-b8c1bceb4acc"
             },
@@ -2117,17 +2221,19 @@
               {
                 "x": 340,
                 "y": 360
+              },
+              {
+                "x": 290,
+                "y": 360
               }
-            ],
-            "labels": [
-              "Confirmation Email"
             ]
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2147,14 +2253,31 @@
               "description": "Webpage containing data about lost dog",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "1c1453bf-6227-4cf7-a873-9e0767b3d37d",
+                  "title": "Incorrect Confirmation Data Displayed",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious actor could intercept the confirmation data sent to the user and provide incorrect or malicious information that is then displayed to the user.",
+                  "mitigation": "- Use HTTPs and TLS to safeguard the connection against attackers",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 55,
+                  "score": ""
+                }
+              ]
             },
             "id": "5f96af07-f24f-411d-a7c5-9eb198829d97",
+            "labels": [
+              "Confirmation Data"
+            ],
             "source": {
               "cell": "4f93c914-eea0-47d8-9c0a-b8c1bceb4acc"
             },
@@ -2163,12 +2286,13 @@
             },
             "vertices": [
               {
+                "x": 360,
+                "y": 410
+              },
+              {
                 "x": 340,
                 "y": 410
               }
-            ],
-            "labels": [
-              "Confirmation Data"
             ]
           },
           {
@@ -2185,6 +2309,9 @@
               "hasOpenThreats": false
             },
             "id": "738cbc48-a53b-4ac7-a834-4a4233d1644f",
+            "labels": [
+              ""
+            ],
             "source": {
               "x": 400,
               "y": 120
@@ -2202,9 +2329,6 @@
                 "x": 330,
                 "y": 430
               }
-            ],
-            "labels": [
-              ""
             ]
           },
           {
@@ -2234,7 +2358,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2254,14 +2379,31 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "80d2582c-856c-4010-a1dc-ad78b8112383",
+                  "title": "Updating Other User's Data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious actor could manipulate the request sent to the database to declare another user's dog lost or otherwise update another user's data.",
+                  "mitigation": "- Sanitise and check inputs on all forms before updating the database to prevent injection\n- The connection to the database should be over a private network to prevent an outside attacker from modifying the request sent to the database\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 49,
+                  "score": ""
+                }
+              ]
             },
             "id": "e0a37f9e-fbf3-40d9-aead-f27fdd490ae9",
+            "labels": [
+              "Updated dog status"
+            ],
             "source": {
               "cell": "4f93c914-eea0-47d8-9c0a-b8c1bceb4acc"
             },
@@ -2273,9 +2415,6 @@
                 "x": 610,
                 "y": 290
               }
-            ],
-            "labels": [
-              "Updated dog status"
             ]
           },
           {
@@ -2310,6 +2449,9 @@
               "threats": []
             },
             "id": "b934ff28-ce30-4c74-8368-3ead24b9c74a",
+            "labels": [
+              "Dog Details\n"
+            ],
             "source": {
               "cell": "4b644368-27f7-487a-ad86-30314074f5fe"
             },
@@ -2321,9 +2463,6 @@
                 "x": 620,
                 "y": 380
               }
-            ],
-            "labels": [
-              "Dog Details\n"
             ]
           },
           {
@@ -2342,8 +2481,8 @@
             },
             "visible": true,
             "shape": "td-text-block",
-            "id": "a20219cc-3ff2-400c-b09c-be1770b53492",
             "zIndex": 11,
+            "id": "a20219cc-3ff2-400c-b09c-be1770b53492",
             "data": {
               "type": "tm.Text",
               "name": "Secure Council \nInfrastructure",
@@ -2364,31 +2503,47 @@
                 "text": "Council Database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
-            "id": "4b644368-27f7-487a-ad86-30314074f5fe",
             "zIndex": 12,
+            "id": "4b644368-27f7-487a-ad86-30314074f5fe",
             "data": {
               "type": "tm.Store",
               "name": "Council Database",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "dbb446eb-fa67-4aa6-80e1-aff9401cb8a2",
+                  "title": "Unauthorised Database Access",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker from the outside or a malicious actor from within the Council without database access privileges could gain access to the database by using a brute force or dictionary attack on the database password.",
+                  "mitigation": "- Use a secure password\n- The database should only be accessible from a private network inside the Council infrastructure\n- Only privileged users should have access to the database\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 43,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -2407,8 +2562,8 @@
             },
             "visible": true,
             "shape": "td-text-block",
-            "id": "923a09e6-3410-471c-93c0-3bf54d6cf2a6",
             "zIndex": 13,
+            "id": "923a09e6-3410-471c-93c0-3bf54d6cf2a6",
             "data": {
               "type": "tm.Text",
               "name": "Database Read/Write\nAccess",
@@ -2984,6 +3139,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 42
+    "threatTop": 56
   }
 }
