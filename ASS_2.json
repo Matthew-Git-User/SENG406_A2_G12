@@ -3318,8 +3318,8 @@
                 "text": "Member of\nPublic"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -3333,9 +3333,23 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c35927a3-810f-4284-91ad-7853cee84cf1",
+                  "title": "Submitting a false report",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "False report of a found dog leading to incorrect records about a lost dog.",
+                  "mitigation": "* Confirm that the details of a found dog match the details of a lost dog.\n* Ensure that the ID of lost dogs is not public information so that it cannot be submitted falsely.\n* Throttle reports so that people cannot mass report every dog ID as found.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 92,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -3556,6 +3570,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 89
+    "threatTop": 92
   }
 }
