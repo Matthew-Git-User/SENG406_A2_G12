@@ -2745,8 +2745,8 @@
                 "text": "Report Dog"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2760,12 +2760,78 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "8e956390-a9de-42b2-b361-bb041ecf9363",
+                  "title": "Submitting a false report",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "False report of a found dog leading to incorrect records about a lost dog.",
+                  "mitigation": "* Confirm that the details of a found dog match the details of a lost dog.\n* Ensure that the ID of lost dogs is not public information so that it cannot be submitted falsely.\n* Throttle reports so that people cannot mass report every dog ID as found.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 67,
+                  "score": ""
+                },
+                {
+                  "id": "4e2f0400-b182-4ef5-b725-adc7c47c1e92",
+                  "title": "Alteration of report data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Attackers could modify details of dog reports to change the retrieval address or provide false information about the found status of a dog to the owner. ",
+                  "mitigation": "* Use input validation\n* Use secure communication",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 68,
+                  "score": ""
+                },
+                {
+                  "id": "e3211923-2138-4268-af6e-ab4a1771d10f",
+                  "title": "Denial of found dog notification",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "The dog owner or dog retrieval company could deny being informed of the dogs found status leading to the dog not being picked up.",
+                  "mitigation": "* Log reports and notifications",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 70,
+                  "score": ""
+                },
+                {
+                  "id": "802b9de2-5231-4c23-9bbe-742eea49451e",
+                  "title": "Exposure of found dog information",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Details about found dog location could be accessed leading to false pickups of found dog.",
+                  "mitigation": "* Encrypt sensitive data in transit and rest\n* Restrict access to sensitive data with access control",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 71,
+                  "score": ""
+                },
+                {
+                  "id": "9f5f833d-58c5-4449-80ef-498e38031753",
+                  "title": "Overloading server with reports",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Attackers could overload the process by submitting large quantities of false reports resulting in tje process not being accessible for true reports.",
+                  "mitigation": "* Rate limiting.\n* Provide backup redundant systems for availability.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 72,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -3289,6 +3355,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 65
+    "threatTop": 74
   }
 }
