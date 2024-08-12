@@ -19,8 +19,8 @@
         "cells": [
           {
             "position": {
-              "x": 50,
-              "y": 100
+              "x": -80,
+              "y": 110
             },
             "size": {
               "width": 112.5,
@@ -131,6 +131,32 @@
                   "new": false,
                   "number": 21,
                   "score": ""
+                },
+                {
+                  "id": "a5787a41-08f7-4d58-aac0-3fb922f1c531",
+                  "title": "SQL Injection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious actor could perform illegal operations on the database such as dropping tables or getting information that they shouldn't have access to",
+                  "mitigation": "Only allow authenticated sources for database interactions.\nSeparate read and write privileges to different database access accounts",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 79,
+                  "score": ""
+                },
+                {
+                  "id": "c3518b0c-9878-406f-8a23-909c1dad8d20",
+                  "title": "Complex query denial of service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could attack the database with complex queries on a large dataset or by opening too many connections",
+                  "mitigation": "Set global database limits for both the max amount of open connections and a timeout for queries",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 80,
+                  "score": ""
                 }
               ]
             }
@@ -138,7 +164,7 @@
           {
             "position": {
               "x": 480,
-              "y": 65
+              "y": 55
             },
             "size": {
               "width": 100,
@@ -149,8 +175,8 @@
                 "text": "Register &&\nRenew"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -164,12 +190,78 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "761d0895-2629-4152-9bf2-8b975d122ab1",
+                  "title": "Process Injection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker could inject malicious code into the server, altering the behaviour of the processes or creating new ones",
+                  "mitigation": "Have all runnables be signed and checked by the OS before running\nRun the process with as little permissions as possible\nValidate user inputs to avoid injection",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 66,
+                  "score": ""
+                },
+                {
+                  "id": "90809754-cf06-40bd-a21d-aa8d7abe965a",
+                  "title": "Impersonation of a Process",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "A malicious user could create a process mimicking the behaviour of the registration / renewal process and have users submit their own data to it",
+                  "mitigation": "Although costly, buy all the domains that have a likeness to the domain being used for serving the website",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 67,
+                  "score": ""
+                },
+                {
+                  "id": "d2c8571d-3103-459f-8993-2051d9936cbd",
+                  "title": "Log manipulation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A malicious user could hijack the process through injection and remove logs pertaining to themselves or others.",
+                  "mitigation": "When storing the logs use Write One Read Many (WORM) memory. ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 68,
+                  "score": ""
+                },
+                {
+                  "id": "00a8a666-0046-41a9-8ee9-2b839c24e083",
+                  "title": "Resources Exhaustion DoS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could inject code into the process that performs a denial of service attack via making many child processes",
+                  "mitigation": "Remove all unnecessary privileges from the process to limit it from creating child processes or other alternatives for DoS attacks ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 71,
+                  "score": ""
+                },
+                {
+                  "id": "0dd5bd97-b453-44f5-9641-890cc9e1c246",
+                  "title": "Elevation of privilege through process injection : Boot or Logon Autostart Execution ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "A malicious actor could use injection to create new on-startup processes with escalated privileges",
+                  "mitigation": "Sanitise and escape user inputs to prevent code injection\nRun the register / renewal process at a privilege level that doesnt allow for alteration of autostart files",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 78,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -258,69 +350,6 @@
             ]
           },
           {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Registration Details",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "8f5ac43f-95c1-48b7-a52e-9a6b46a0e7a3",
-                  "title": "Adversary in the middle",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "A malicious actor could install hardware on the council network to monitor requests between the registration process and the database.  This data could then be forwarded outside of the network via HTTPS / Bluetooth or other process",
-                  "mitigation": "- Encryption between processes on a network (even if the network is mostly trusted)\n- Network monitoring and logging (Awareness of unexpected outbound requests)\n",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 19,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "408a0665-3802-4559-be2f-b72c80e76a3d",
-            "labels": [
-              "Registration Details"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "8e38aa8b-fd64-4414-bf0b-82c8e69ad93f"
-            },
-            "vertices": [
-              {
-                "x": 750,
-                "y": 123
-              }
-            ]
-          },
-          {
             "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
@@ -348,8 +377,8 @@
                 "y": 80
               },
               {
-                "x": 480,
-                "y": 100
+                "x": 440,
+                "y": 160
               },
               {
                 "x": 440,
@@ -514,64 +543,12 @@
             },
             "vertices": [
               {
-                "x": 350,
-                "y": 180
+                "x": 380,
+                "y": 200
               },
               {
-                "x": 320,
-                "y": 180
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Confirmation data",
-              "description": "Includes:\nunique registration num.\nand expr. date",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "a0f832b2-8c09-47ad-89b5-e2bb4d844a14",
-            "labels": [
-              "Confirmation data"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
-            },
-            "vertices": [
-              {
-                "x": 360,
-                "y": 150
-              },
-              {
-                "x": 340,
-                "y": 150
+                "x": 160,
+                "y": 200
               }
             ]
           },
@@ -596,7 +573,74 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "User and dog details",
+              "name": "Confirmation email",
+              "description": "Contains invoice ",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "01fdfce3-7270-48e6-bee4-e3e162de2f07",
+                  "title": " Data Manipulation: Transmitted Data Manipulation ",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "During transit, the email could be altered by a malicious actor to change the banking details that the user will submit the money to",
+                  "mitigation": "Data in transit should be encrypted using a protocol such as HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
+            "labels": [
+              "Confirmation email"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "vertices": [
+              {
+                "x": 320,
+                "y": 160
+              },
+              {
+                "x": 220,
+                "y": 160
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "User and dog details Registration",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -662,38 +706,83 @@
             },
             "id": "fb44063f-c50c-40c0-bae2-9bfc97fbc6a5",
             "labels": [
-              "User and dog details"
+              "User and dog details Registration"
             ],
             "source": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+              "x": 40,
+              "y": 150
             },
             "target": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+              "x": 480,
+              "y": 120
             },
             "vertices": [
               {
-                "x": 320,
-                "y": 90
+                "x": 390,
+                "y": 140
               },
               {
-                "x": 410,
-                "y": 90
-              },
-              {
-                "x": 470,
-                "y": 110
+                "x": 440,
+                "y": 140
               }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Confirmation data (Register)",
+              "description": "Includes:\nunique registration num.\nand expr. date",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "a0f832b2-8c09-47ad-89b5-e2bb4d844a14",
+            "labels": [
+              "Confirmation data (Register)"
             ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "x": 30,
+              "y": 130
+            },
+            "vertices": [
+              {
+                "x": 460,
+                "y": 100
+              },
+              {
+                "x": 360,
+                "y": 70
+              },
+              {
+                "x": 180,
+                "y": 70
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -716,8 +805,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Confirmation email",
-              "description": "Contains invoice ",
+              "name": "Registration Details",
+              "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
@@ -727,36 +816,148 @@
               "protocol": "",
               "threats": [
                 {
-                  "id": "01fdfce3-7270-48e6-bee4-e3e162de2f07",
-                  "title": " Data Manipulation: Transmitted Data Manipulation ",
+                  "id": "8f5ac43f-95c1-48b7-a52e-9a6b46a0e7a3",
+                  "title": "Adversary in the middle",
                   "status": "Open",
                   "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "During transit, the email could be altered by a malicious actor to change the banking details that the user will submit the money to",
-                  "mitigation": "Data in transit should be encrypted using a protocol such as HTTPS",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could install hardware on the council network to monitor requests between the registration process and the database.  This data could then be forwarded outside of the network via HTTPS / Bluetooth or other process",
+                  "mitigation": "- Encryption between processes on a network (even if the network is mostly trusted)\n- Network monitoring and logging (Awareness of unexpected outbound requests)\n",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 9,
+                  "number": 19,
                   "score": ""
                 }
               ]
             },
-            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
+            "id": "408a0665-3802-4559-be2f-b72c80e76a3d",
             "labels": [
-              "Confirmation email"
+              "Registration Details"
             ],
             "source": {
               "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
             },
             "target": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+              "cell": "8e38aa8b-fd64-4414-bf0b-82c8e69ad93f"
             },
             "vertices": [
               {
-                "x": 240,
+                "x": 710,
+                "y": 126.5
+              },
+              {
+                "x": 750,
+                "y": 123
+              },
+              {
+                "x": 770,
                 "y": 123
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Dog Renewal Details",
+              "description": "Old Tag + New Address",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "099f74a6-324f-4cc9-b148-1c889e78b525",
+                  "title": "Endpoint Denial of Service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could repeatedly send requests over this endpoint to exhaust the resources available to the  process",
+                  "mitigation": "Throttle requests from any IP",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 73,
+                  "score": ""
+                },
+                {
+                  "id": "866f21ca-8b46-4abc-9489-44ec3324bc95",
+                  "title": "Adversary in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Knowing a family has a dog with tag ID X, a malicious user could monitor inbound requests to renew a dog tag to maintain an up to date location for the dogs family",
+                  "mitigation": "Have all requests for the service be done over HTTPS for encryption",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 74,
+                  "score": ""
+                },
+                {
+                  "id": "12a8a148-312d-47d8-b021-792dd0306747",
+                  "title": "Data Manipulation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious actor could monitor requests for renewing and modify the delivery address to have the tag delivered to themselves instead of the dog owner",
+                  "mitigation": "Encrypt requests using HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 75,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "0739a76a-16da-46e5-929e-567ef71b2e77",
+            "source": {
+              "x": 40,
+              "y": 130
+            },
+            "target": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "labels": [
+              "Dog Renewal Details"
+            ],
+            "vertices": [
+              {
+                "x": 300,
+                "y": 120
+              },
+              {
+                "x": 450,
+                "y": 120
+              }
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "position": {
@@ -3355,6 +3556,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 74
+    "threatTop": 89
   }
 }
