@@ -1756,11 +1756,24 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Elevation of privilege",
-                  "description": "A malicious user could gain access to unsecured endpoints on the web application and escalate their privileges allowing them to send malicious requests to the database.",
-                  "mitigation": "- Ensure all important endpoints are secured with a password\n- Prevent unauthorised users from accessing endpoints by only allowing access from inside Council infrastructure with a Council IP",
+                  "description": "A malicious user could gain access to unsecured endpoints on the web application or send a malicious request and escalate their privileges allowing them to send malicious requests to the database.",
+                  "mitigation": "- Ensure all important endpoints are secured with a password\n- Prevent unauthorised users from accessing endpoints by only allowing access from inside Council infrastructure with a Council IP\n- Sanitise input fields",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 56,
+                  "score": ""
+                },
+                {
+                  "id": "b6f2face-bec1-427d-9ae7-8e1b13aa40ba",
+                  "title": "Declare Dog Lost DOS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could send a request to the server using a command injection that would bring the process down.",
+                  "mitigation": "- Sanitise and check all input field on forms\n- Secure all endpoints the user should not be able to access with authentication",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 115,
                   "score": ""
                 }
               ]
@@ -1878,10 +1891,23 @@
                   "severity": "Medium",
                   "type": "Information disclosure",
                   "description": "A malicious actor could listen on the connection when an owner declares a dog lost and obtain the user's email address and the dog's name.",
-                  "mitigation": "Use TLS and HTTPS to protect the connection from attackers.",
+                  "mitigation": "- Use TLS and HTTPS to protect the connection from attackers.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 45,
+                  "score": ""
+                },
+                {
+                  "id": "15938cbb-7ec8-4107-945d-7a92e16c5252",
+                  "title": "Modify Request Details",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker could intercept the request and modify the details of the dog in order to declare another user's dog lost, or send a malicious request to the server.",
+                  "mitigation": "- Use TLS and HTTPS to protect the connection from attackers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 108,
                   "score": ""
                 }
               ]
@@ -1945,10 +1971,23 @@
                   "severity": "Medium",
                   "type": "Tampering",
                   "description": "A malicious actor could tamper with the confirmation email sent to the user to include incorrect data or malicious links.",
-                  "mitigation": "Use TLS and HTTPS to prevent malicious actors from intercepting and tampering with the confirmation email.",
+                  "mitigation": "- Use TLS and HTTPS to prevent malicious actors from intercepting and tampering with the confirmation email.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 50,
+                  "score": ""
+                },
+                {
+                  "id": "b6a9bac3-c259-43c3-a9d0-d84a5f606dd5",
+                  "title": "Adversary in the Middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could listen on the connection to obtain the status of the dog and its tag ID.",
+                  "mitigation": "- Use TLS and HTTPS to prevent malicious actors from intercepting and tampering with the confirmation email.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 109,
                   "score": ""
                 }
               ]
@@ -1965,7 +2004,7 @@
             },
             "vertices": [
               {
-                "x": 340,
+                "x": 350,
                 "y": 360
               },
               {
@@ -2016,6 +2055,19 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 55,
+                  "score": ""
+                },
+                {
+                  "id": "77ef5db0-59b2-4d6b-8eb4-d3d468553616",
+                  "title": "Adversary in the Middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could listen on the connection to obtain the status of the dog and its tag ID.",
+                  "mitigation": "- Use HTTPs and TLS to safeguard the connection against attackers",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 113,
                   "score": ""
                 }
               ]
@@ -2070,6 +2122,10 @@
               {
                 "x": 370,
                 "y": 230
+              },
+              {
+                "x": 350,
+                "y": 300
               },
               {
                 "x": 330,
@@ -2143,6 +2199,32 @@
                   "new": false,
                   "number": 49,
                   "score": ""
+                },
+                {
+                  "id": "eec458eb-e6a1-4532-af55-9c23b74014d9",
+                  "title": "Adversary in the Middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious user could intercept and listen on the connection to the database to obtain user details.",
+                  "mitigation": "- The connection to the database should be on a private network with no outside access\n- The connection to the database should use TLS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 117,
+                  "score": ""
+                },
+                {
+                  "id": "0c3802ba-9565-4797-926a-040f409e0360",
+                  "title": "Database DDOS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could send multiple malicious requests to the database to slow the system down and potentially bring the database down.",
+                  "mitigation": "- The connection to the database should be over a private network with no outside access\n- Inputs from user accessible endpoints should be sanitised before being sent to the database",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 118,
+                  "score": ""
                 }
               ]
             },
@@ -2158,6 +2240,10 @@
             },
             "vertices": [
               {
+                "x": 580,
+                "y": 300
+              },
+              {
                 "x": 610,
                 "y": 290
               }
@@ -2167,7 +2253,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2187,12 +2274,39 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "e46e8a5a-cf0e-4d6d-a44c-f507bc560732",
+                  "title": "Adversary in the Middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious user could listen on the connection and obtain user details.",
+                  "mitigation": "- The connection between the database and the web application should be over a private network\n- The connection should use TLS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 119,
+                  "score": ""
+                },
+                {
+                  "id": "8e49e03e-048f-4e76-b54e-de6c09ba625d",
+                  "title": "Tampering with Request Sent Back to Application",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious attacker could modify the details sent from the database back to the web application to provide the user with incorrect information, malicious code or links.",
+                  "mitigation": "- The connection between the database and web application should be over a private network\n- The connection should be over TLS\n- The output of the database transaction should be checked before sending it to the user",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 120,
+                  "score": ""
+                }
+              ]
             },
             "id": "b934ff28-ce30-4c74-8368-3ead24b9c74a",
             "labels": [
@@ -2207,6 +2321,10 @@
             "vertices": [
               {
                 "x": 620,
+                "y": 380
+              },
+              {
+                "x": 570,
                 "y": 380
               }
             ]
@@ -2287,6 +2405,32 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 43,
+                  "score": ""
+                },
+                {
+                  "id": "9f67f76f-d060-4b49-9a38-44599851d30b",
+                  "title": "SQL Injection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious user could encode an SQL query in their request to the server to corrupt the database.",
+                  "mitigation": "- Sanitise inputs before sending them to the database",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 122,
+                  "score": ""
+                },
+                {
+                  "id": "69be5bc2-a4cc-4cb7-9717-0a18e8394591",
+                  "title": "Database DOS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious attacker could encode complex SQL queries or open many connections with the database to bring the system down.",
+                  "mitigation": "- Check and sanitise queries before sending them to the database",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 123,
                   "score": ""
                 }
               ]
@@ -2951,6 +3095,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 104
+    "threatTop": 123
   }
 }
