@@ -20,7 +20,7 @@
           {
             "position": {
               "x": -80,
-              "y": 110
+              "y": 100
             },
             "size": {
               "width": 112.5,
@@ -151,7 +151,7 @@
           {
             "position": {
               "x": 480,
-              "y": 55
+              "y": 65
             },
             "size": {
               "width": 100,
@@ -281,8 +281,8 @@
             },
             "vertices": [
               {
-                "x": 180,
-                "y": 40
+                "x": 160,
+                "y": 30
               },
               {
                 "x": 250,
@@ -479,96 +479,6 @@
               {
                 "x": 940,
                 "y": -40
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Dog Renewal Details",
-              "description": "Old Tag + New Address",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "099f74a6-324f-4cc9-b148-1c889e78b525",
-                  "title": "Endpoint Denial of Service",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "A malicious user could repeatedly send requests over this endpoint to exhaust the resources available to the  process",
-                  "mitigation": "Throttle requests from any IP",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 73,
-                  "score": ""
-                },
-                {
-                  "id": "866f21ca-8b46-4abc-9489-44ec3324bc95",
-                  "title": "Adversary in the middle",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Knowing a family has a dog with tag ID X, a malicious user could monitor inbound requests to renew a dog tag to maintain an up to date location for the dogs family",
-                  "mitigation": "Have all requests for the service be done over HTTPS for encryption",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 74,
-                  "score": ""
-                },
-                {
-                  "id": "12a8a148-312d-47d8-b021-792dd0306747",
-                  "title": "Data Manipulation",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "A malicious actor could monitor requests for renewing and modify the delivery address to have the tag delivered to themselves instead of the dog owner",
-                  "mitigation": "Encrypt requests using HTTPS",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 75,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "0739a76a-16da-46e5-929e-567ef71b2e77",
-            "labels": [
-              "Dog Renewal Details"
-            ],
-            "source": {
-              "x": 40,
-              "y": 130
-            },
-            "target": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "vertices": [
-              {
-                "x": 270,
-                "y": 100
               }
             ]
           },
@@ -877,55 +787,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Confirmation data (Register)",
-              "description": "Includes:\nunique registration num.\nand expr. date",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "a0f832b2-8c09-47ad-89b5-e2bb4d844a14",
-            "labels": [
-              "Confirmation data (Register)"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "x": 30,
-              "y": 130
-            },
-            "vertices": [
-              {
-                "x": 250,
-                "y": 70
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
                 "targetMarker": {
@@ -983,6 +844,143 @@
               {
                 "x": 660,
                 "y": 190
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Confirmation data (Register)",
+              "description": "Includes:\nunique registration num.\nand expr. date",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "a0f832b2-8c09-47ad-89b5-e2bb4d844a14",
+            "labels": [
+              "Confirmation data (Register)"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "vertices": [
+              {
+                "x": 250,
+                "y": 70
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Dog Renewal Details",
+              "description": "Old Tag + New Address",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "099f74a6-324f-4cc9-b148-1c889e78b525",
+                  "title": "Endpoint Denial of Service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could repeatedly send requests over this endpoint to exhaust the resources available to the  process",
+                  "mitigation": "Throttle requests from any IP",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 73,
+                  "score": ""
+                },
+                {
+                  "id": "866f21ca-8b46-4abc-9489-44ec3324bc95",
+                  "title": "Adversary in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Knowing a family has a dog with tag ID X, a malicious user could monitor inbound requests to renew a dog tag to maintain an up to date location for the dogs family",
+                  "mitigation": "Have all requests for the service be done over HTTPS for encryption",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 74,
+                  "score": ""
+                },
+                {
+                  "id": "12a8a148-312d-47d8-b021-792dd0306747",
+                  "title": "Data Manipulation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious actor could monitor requests for renewing and modify the delivery address to have the tag delivered to themselves instead of the dog owner",
+                  "mitigation": "Encrypt requests using HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 75,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "0739a76a-16da-46e5-929e-567ef71b2e77",
+            "labels": [
+              "Dog Renewal Details"
+            ],
+            "source": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "target": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "vertices": [
+              {
+                "x": 270,
+                "y": 100
               }
             ]
           },

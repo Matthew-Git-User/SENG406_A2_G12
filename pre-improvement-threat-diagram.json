@@ -1116,7 +1116,7 @@
         "cells": [
           {
             "position": {
-              "x": 50,
+              "x": 120,
               "y": 100
             },
             "size": {
@@ -1173,12 +1173,19 @@
                   "score": ""
                 }
               ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
             "position": {
               "x": 780,
-              "y": 95.00000000000006
+              "y": 95
             },
             "size": {
               "width": 150,
@@ -1223,10 +1230,36 @@
                   "severity": "Medium",
                   "type": "Information disclosure",
                   "description": "A non authorized user has access to the contents of the DB.",
-                  "mitigation": "the DB uses credential that are stored securely.\nUse the least privilege principle.",
+                  "mitigation": "the DB uses strong credentials that are stored securely.\nUse the least privilege principle.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 35,
+                  "score": ""
+                },
+                {
+                  "id": "cb65e9d7-e194-48aa-af9c-e1b85b007848",
+                  "title": "SQL injection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "By injecting SQL statements into a form it is possible to read or modify a database without credentials.",
+                  "mitigation": "Only allow authenticated sources for database interactions.\nSeparate read and write privileges to different database access accounts.\nValidate inputs to forms.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 99,
+                  "score": ""
+                },
+                {
+                  "id": "2ea17c51-b765-4c0f-9c62-710f0988d4db",
+                  "title": "Denial of service",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "By using a complex query it is possible to slow down the database for other users by using too many connections.",
+                  "mitigation": "Set limits for queries to allow them to timeout.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 100,
                   "score": ""
                 }
               ]
@@ -1269,12 +1302,12 @@
               "threats": [
                 {
                   "id": "49d2a5c8-2a8c-4d05-95cb-494c226f12b5",
-                  "title": "Deny terminating dog",
+                  "title": "Lack of logs",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "End user claims to not have terminated a dog",
-                  "mitigation": "Log requests and where they came from",
+                  "description": "A malicious could claim to not have terminated a dog. Without logs it would not be possible to determine the truth.",
+                  "mitigation": "Log requests and where they came from.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 32,
@@ -1286,11 +1319,50 @@
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Elevation of privilege",
-                  "description": "An unvalidated user terminates a dog when they do not have permission to do so.",
-                  "mitigation": "Utilize the least privilege principle.",
+                  "description": "An unvalidated user terminates a dog when they do not have permission to do so. This could be done by injecting malicious code that escalates privileges. ",
+                  "mitigation": "Sanitize and escape user inputs.\nUtilize the least privilege principle.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 33,
+                  "score": ""
+                },
+                {
+                  "id": "21c34782-d858-4c1d-afa8-442fcf9f4790",
+                  "title": "Injecting into process",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious user could inject code directly into this process. This code could alter the behaviour of the process.",
+                  "mitigation": "Validate user inputs to avoid injection.\nUtilize least privilege principle.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 101,
+                  "score": ""
+                },
+                {
+                  "id": "2b286f2c-45c3-45c7-bbf1-b64e46f018e3",
+                  "title": "DoS",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Repeated calls to this process from a botnet or other high demand could slow the process for all users.",
+                  "mitigation": "Utilize a CDN.\nLimit the complexity of the process.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 102,
+                  "score": ""
+                },
+                {
+                  "id": "463f05f3-c9d7-456c-98ac-793e22d8ae72",
+                  "title": "Man in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "It could be possible for a third party to mimic the behaviour of this termination process and have unaware users submit personal data to it. ",
+                  "mitigation": "Monitor DNS traffic.\nEncourage users to use a VPN when using an insecure website.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 103,
                   "score": ""
                 }
               ]
@@ -1383,6 +1455,139 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
+              "name": "Confirmation email",
+              "description": "Email confirmation that the dog is not registered anymore, and that the tag can be destroyed.\nAlso contains a link to the registration process on the Council’s application in case the dog’s registration was terminated by mistake",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "e37f8f61-3001-4c3b-9d27-857157490c9f",
+                  "title": "Send invalid link",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "By tampering with the email a malicious actor could change the link to the registration process to a malicious link that infects the user.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
+            "labels": [
+              "Confirmation email"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "vertices": [
+              {
+                "x": 350,
+                "y": 160
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Termination details",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "90d73620-7585-4e8b-9e9b-d918be1e645a",
+                  "title": "Tampering with data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "By tampering with the data being sent to the DB a user could manipulate the database in unintended ways.",
+                  "mitigation": "Encrypt the data being sent to the database to make it harder to tamper with",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                },
+                {
+                  "id": "059a871b-a803-44b9-bf7a-af9ae1dbd5a0",
+                  "title": "Adversary in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could monitor the network traffic going to the database. This could then be used to identify the data in the database.",
+                  "mitigation": "Encrypt data going from the termination process to the database.\nApply network monitoring principles.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 94,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "408a0665-3802-4559-be2f-b72c80e76a3d",
+            "labels": [
+              "Termination details"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "8e38aa8b-fd64-4414-bf0b-82c8e69ad93f"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
               "name": "User and dog details",
               "description": "Users email address, the dog tag ID, and the dog’s name",
               "outOfScope": false,
@@ -1435,126 +1640,6 @@
               {
                 "x": 360,
                 "y": 90
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Termination details",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "90d73620-7585-4e8b-9e9b-d918be1e645a",
-                  "title": "Tampering with data",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "By tampering with the data being sent to the DB a user could manipulate the database in unintended ways.",
-                  "mitigation": "Encrypt the data being sent to the database to make it harder to tamper with",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 34,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "408a0665-3802-4559-be2f-b72c80e76a3d",
-            "labels": [
-              "Termination details"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "8e38aa8b-fd64-4414-bf0b-82c8e69ad93f"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Confirmation email",
-              "description": "Email confirmation that the dog is not registered anymore, and that the tag can be destroyed.\nAlso contains a link to the registration process on the Council’s application in case the dog’s registration was terminated by mistake",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "e37f8f61-3001-4c3b-9d27-857157490c9f",
-                  "title": "Send invalid link",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "By tampering with the email a malicious actor could change the link to the registration process to a malicious link that infects the user.",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 37,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
-            "labels": [
-              "Confirmation email"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
-            },
-            "vertices": [
-              {
-                "x": 350,
-                "y": 160
               }
             ]
           },
@@ -2866,6 +2951,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 89
+    "threatTop": 104
   }
 }
