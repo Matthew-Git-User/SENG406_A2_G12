@@ -1428,6 +1428,58 @@
                   "new": false,
                   "number": 33,
                   "score": ""
+                },
+                {
+                  "id": "eb0fbbc9-4f73-4867-8a01-60a25e481f55",
+                  "title": "Lack of logs",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A malicious could claim to not have terminated a dog. Without logs it would not be possible to determine the truth.",
+                  "mitigation": "Log requests and where they came from.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 100,
+                  "score": ""
+                },
+                {
+                  "id": "b11f042b-57f3-4679-a30c-a30327465f8b",
+                  "title": "Injecting into process",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious user could inject code directly into this process. This code could alter the behaviour of the process.",
+                  "mitigation": "Validate user inputs to avoid injection.\nUtilize least privilege principle.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 101,
+                  "score": ""
+                },
+                {
+                  "id": "542bab9f-c7c7-4695-ba53-7b6bf3a7e03c",
+                  "title": "DoS",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Repeated calls to this process from a botnet or other high demand could slow the process for all users.",
+                  "mitigation": "Utilize a CDN.\nLimit the complexity of the process.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 102,
+                  "score": ""
+                },
+                {
+                  "id": "3f08c1fc-912e-4708-a9b6-aa341c1c97d0",
+                  "title": "Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "It could be possible for a third party to mimic the behaviour of this termination process and have unaware users submit personal data to it. ",
+                  "mitigation": "Monitor DNS traffic.\nEncourage users to use a VPN when using an insecure website.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 103,
+                  "score": ""
                 }
               ]
             }
@@ -1610,68 +1662,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Confirmation email",
-              "description": "Email confirmation that the dog is not registered anymore, and that the tag can be destroyed.\nAlso contains a link to the registration process on the Council’s application in case the dog’s registration was terminated by mistake",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "e37f8f61-3001-4c3b-9d27-857157490c9f",
-                  "title": "Send invalid link",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "By tampering with the email a malicious actor could change the link to the registration process to a malicious link that infects the user.",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 37,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
-            "labels": [
-              "Confirmation email"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
-            },
-            "vertices": [
-              {
-                "x": 350,
-                "y": 160
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "User and dog details",
               "description": "Users email address, the dog tag ID, and the dog’s name",
               "outOfScope": false,
@@ -1747,6 +1737,68 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
+              "name": "Confirmation email",
+              "description": "Email confirmation that the dog is not registered anymore, and that the tag can be destroyed.\nAlso contains a link to the registration process on the Council’s application in case the dog’s registration was terminated by mistake",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "e37f8f61-3001-4c3b-9d27-857157490c9f",
+                  "title": "Send invalid link",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "By tampering with the email a malicious actor could change the link to the registration process to a malicious link that infects the user.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
+            "labels": [
+              "Confirmation email"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "vertices": [
+              {
+                "x": 350,
+                "y": 160
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
               "name": "Termination details",
               "description": "",
               "outOfScope": false,
@@ -1768,6 +1820,19 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 34,
+                  "score": ""
+                },
+                {
+                  "id": "4b65578a-77a7-4ae6-a5a2-b6bdeb44f68f",
+                  "title": "Adversary in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could monitor the network traffic going to the database. This could then be used to identify the data in the database.",
+                  "mitigation": "Encrypt data going from the termination process to the database.\nApply network monitoring principles.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 104,
                   "score": ""
                 }
               ]
