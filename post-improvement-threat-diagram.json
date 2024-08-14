@@ -2726,8 +2726,8 @@
                 "text": "Report Dog"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -2741,7 +2741,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -2750,11 +2750,11 @@
                 {
                   "id": "8e956390-a9de-42b2-b361-bb041ecf9363",
                   "title": "Submitting a false report",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Spoofing",
                   "description": "False report of a found dog leading to incorrect records about a lost dog.",
-                  "mitigation": "* Confirm that the details of a found dog match the details of a lost dog.\n* Ensure that the ID of lost dogs is not public information so that it cannot be submitted falsely.\n* Throttle reports so that people cannot mass report every dog ID as found.",
+                  "mitigation": "- Confirm that the details of a found dog match the details of a lost dog.\n- Ensure that the ID of lost dogs is not public information so that it cannot be submitted falsely.\n- Throttle reports so that people cannot mass report every dog ID as found.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 67,
@@ -2771,6 +2771,19 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 68,
+                  "score": ""
+                },
+                {
+                  "id": "e3211923-2138-4268-af6e-ab4a1771d10f",
+                  "title": "Denial of found dog notification",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "The dog owner or dog retrieval company could deny being informed of the dogs found status leading to the dog not being picked up.",
+                  "mitigation": "* Log reports and notifications",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 70,
                   "score": ""
                 },
                 {
@@ -2803,54 +2816,6 @@
             }
           },
           {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Dog Details",
-              "description": "Tag ID, Current Address",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "82bca5e0-b492-4e47-9e7f-19a667622a2c",
-            "labels": [
-              "Dog Details"
-            ],
-            "source": {
-              "cell": "25c0a57f-c13b-439e-a417-7c494b3078cc"
-            },
-            "target": {
-              "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
-            },
-            "vertices": [
-              {
-                "x": 360,
-                "y": 270
-              }
-            ]
-          },
-          {
             "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
@@ -2874,94 +2839,60 @@
             }
           },
           {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
+            "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
             "zIndex": 10,
             "connector": "smooth",
             "data": {
-              "type": "tm.Flow",
-              "name": "Dog found ack",
-              "description": "Dog found ack",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
             },
-            "id": "7941eedd-c87c-4590-9efe-10513ce1c207",
-            "labels": [
-              "Dog found ack"
-            ],
+            "id": "070fb0e4-2ebb-4d0a-a90e-fb4eb0c988ff",
             "source": {
-              "cell": "29e3097a-dc04-4409-9068-4109b6ecb709"
+              "x": 600,
+              "y": 70
             },
             "target": {
-              "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
+              "x": 710,
+              "y": 460
+            }
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "e9f424bb-c098-452d-8b53-f70421b41774",
+            "source": {
+              "x": 920,
+              "y": 560
+            },
+            "target": {
+              "x": 490,
+              "y": 630
             },
             "vertices": [
               {
-                "x": 430,
-                "y": 420
+                "x": 680,
+                "y": 480
+              },
+              {
+                "x": 490,
+                "y": 530
               }
             ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Council sends dog service to dog",
-              "description": "Council sends dog service to dog",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "114f58e1-9f17-4a65-98a9-e587ff92faf5",
-            "labels": [
-              "Council sends dog service to dog"
-            ],
-            "source": {
-              "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
-            },
-            "target": {
-              "cell": "29e3097a-dc04-4409-9068-4109b6ecb709"
-            }
           },
           {
             "shape": "flow",
@@ -2992,7 +2923,47 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "cf116cc3-bf1b-4c6d-8313-7356b473010e",
+                  "title": "Email modification",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An email could be modified in transit to contain false information or malicious code/links.",
+                  "mitigation": "- Use secure email protocols\n- Attach digital signatures to emails",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 133,
+                  "score": ""
+                },
+                {
+                  "id": "7ee06a00-cc42-41a0-a772-8aebbffa706f",
+                  "title": "Email server DDoS",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Targeted attacks on the council's email server may result in outgoing emails not being sent to the dog owners.",
+                  "mitigation": "- Email throttling to stop email system from being overloaded\n- Spam filters to remove malicious emails",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 134,
+                  "score": ""
+                },
+                {
+                  "id": "54e599ec-62ff-4572-9753-613eea672939",
+                  "title": "Interception of Email",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "An attacker could intercept the email in transit and gain access to sensitive information.",
+                  "mitigation": "- Limit sensitive information in emails\n- Encrypt emails with sensitive information",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 135,
+                  "score": ""
+                }
+              ]
             },
             "id": "8a8469ac-6606-4707-9b70-6198129e0ee7",
             "labels": [
@@ -3025,8 +2996,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Update dog status",
-              "description": "Change from missing to found",
+              "name": "Dog Details",
+              "description": "Tag ID, Current Address",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -3034,75 +3005,62 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "1afe4c45-cfea-4b16-8eff-428f3533af22",
+                  "title": "Website Form Tampering",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker could manipulate the form on the council website to enable them to bypass input validation and trigger unexpected behaviour on the council server.",
+                  "mitigation": "- Use HTTPS\n- Ensure strict client side and server side input validation is used",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 136,
+                  "score": ""
+                },
+                {
+                  "id": "49367281-dcd5-45c7-9793-4135d3d9e3df",
+                  "title": "Large Reports",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A user could submit large amounts of data to the server using the form resulting in crashes or other unexpected behaviours on the council server. ",
+                  "mitigation": "- Input validation to block data that is too large from being read",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 137,
+                  "score": ""
+                },
+                {
+                  "id": "73826516-74b4-4fe3-982a-f120b67bc419",
+                  "title": "Interception of Data",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A man-in-the-middle attack could allow an attacker to see sensitive information in transit such as home addresses.",
+                  "mitigation": "- Encrypt data in transit with HTTPS ",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 138,
+                  "score": ""
+                }
+              ]
             },
-            "id": "fe31a55c-0e14-4745-bea2-a2bc1de0dbc1",
+            "id": "82bca5e0-b492-4e47-9e7f-19a667622a2c",
             "labels": [
-              "Update dog status"
+              "Dog Details"
             ],
             "source": {
+              "cell": "25c0a57f-c13b-439e-a417-7c494b3078cc"
+            },
+            "target": {
               "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
             },
-            "target": {
-              "cell": "16cd2e91-8b45-4e65-a7c6-bb5963e179f2"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "id": "070fb0e4-2ebb-4d0a-a90e-fb4eb0c988ff",
-            "source": {
-              "x": 710,
-              "y": -34
-            },
-            "target": {
-              "x": 1010,
-              "y": 360
-            },
             "vertices": [
               {
-                "x": 610,
-                "y": 290
-              }
-            ]
-          },
-          {
-            "shape": "trust-boundary-curve",
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Boundary",
-              "name": "",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            },
-            "id": "b45f9fcc-827d-4089-b9b5-595811c174a5",
-            "source": {
-              "x": 560,
-              "y": 610
-            },
-            "target": {
-              "x": 1000,
-              "y": 380
-            },
-            "vertices": [
-              {
-                "x": 590,
-                "y": 410
+                "x": 360,
+                "y": 270
               }
             ]
           },
@@ -3126,8 +3084,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Logs for audited interactions",
-              "description": "",
+              "name": "Council sends dog service to dog",
+              "description": "Council sends dog service to dog",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -3137,21 +3095,153 @@
               "protocol": "",
               "threats": [
                 {
-                  "id": "115be00e-7572-439c-80c1-8cb5ccf0da04",
-                  "title": "Flooding Logging Service with Bad requests",
-                  "status": "Open",
+                  "id": "65605f95-40bf-4b6c-bc26-4f78ff1d180b",
+                  "title": "Interception of Data",
+                  "status": "Mitigated",
                   "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "A malicious actor could construct requests for the logging service to block up the service and slow all processes dependent on it",
-                  "mitigation": "On the council infrastructure network layer, refuse all inbound connections attempting to reach something other than the exposed processes",
+                  "type": "Information disclosure",
+                  "description": "A man-in-the-middle attack could allow an attacker to see sensitive information in transit such as home addresses.\n",
+                  "mitigation": "- Encrypt data in transit with HTTPS ",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 99,
+                  "number": 140,
+                  "score": ""
+                },
+                {
+                  "id": "8a05fe00-8096-4f98-acb8-8e9d1512823d",
+                  "title": "Modification of Message",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A message to the dog pickup service could be modified in transit sending the service to the wrong address etc.",
+                  "mitigation": "- Use encrypted forms of communication with digital signatures",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 141,
                   "score": ""
                 }
               ]
             },
-            "id": "3fcdb468-ee48-4815-b01f-9f01a79eb7ee",
+            "id": "114f58e1-9f17-4a65-98a9-e587ff92faf5",
+            "labels": [
+              "Council sends dog service to dog"
+            ],
+            "source": {
+              "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
+            },
+            "target": {
+              "cell": "29e3097a-dc04-4409-9068-4109b6ecb709"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Dog found ack",
+              "description": "Dog found ack",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "16ac52ba-b4ca-4773-aa51-cf9225c59113",
+                  "title": " Acknowledgement Manipulation",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An acknowledgement that the dog has been picked up could be faked or adjusted to provide false information to the council.",
+                  "mitigation": "- Use secure methods of communication with digital signatures",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 142,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "7941eedd-c87c-4590-9efe-10513ce1c207",
+            "labels": [
+              "Dog found ack"
+            ],
+            "source": {
+              "cell": "29e3097a-dc04-4409-9068-4109b6ecb709"
+            },
+            "target": {
+              "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
+            },
+            "vertices": [
+              {
+                "x": 430,
+                "y": 420
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Logs for audited interactions",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "41f94e22-abfa-498c-bc84-584cf9237602",
+                  "title": "Flooding Logging Service with Bad requests",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious actor could construct requests for the logging service to block up the service and slow all processes dependent on it.",
+                  "mitigation": "On the council infrastructure network layer, refuse all inbound connections attempting to reach something other than the exposed processes",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 102,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "747671bf-50c8-4a59-a671-5cde0ac7c6b7",
             "labels": [
               "Logs for audited interactions"
             ],
@@ -3159,8 +3249,80 @@
               "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
             },
             "target": {
-              "cell": "d43f0d2b-6fa8-4f33-ad20-f3384b3cb68b"
-            }
+              "cell": "ac61ae42-f568-4391-ab92-ea3034b3ed6e"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Update dog status",
+              "description": "Change from missing to found",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "5a58a7a4-eb7e-40a1-886e-3047045255bf",
+                  "title": "Modification of data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A man-in-the-middle attack could allow a malicious actor to change the information being sent to the database.",
+                  "mitigation": "- Use secure channels to send information to and from the database such as keeping communication to the database internal within council hardware\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 131,
+                  "score": ""
+                },
+                {
+                  "id": "8ca0c109-106a-4725-8485-6432ea593142",
+                  "title": "Overloading",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker could overload the database with changes resulting in it being inaccessible.",
+                  "mitigation": "- Rate limiting and throttling\n- Network firewalls to filter out malicious traffic to internal council systems",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 132,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "fe31a55c-0e14-4745-bea2-a2bc1de0dbc1",
+            "labels": [
+              "Update dog status"
+            ],
+            "source": {
+              "cell": "62a7b4ad-a558-413f-a8cc-f5a6b39320cb"
+            },
+            "target": {
+              "cell": "16cd2e91-8b45-4e65-a7c6-bb5963e179f2"
+            },
+            "vertices": []
           },
           {
             "position": {
@@ -3195,16 +3357,16 @@
               "providesAuthentication": false,
               "threats": [
                 {
-                  "id": "c35927a3-810f-4284-91ad-7853cee84cf1",
-                  "title": "Submitting a false report",
+                  "id": "4b33566b-642c-4d8e-8172-96eb305e1962",
+                  "title": "Fake Identity",
                   "status": "Open",
                   "severity": "Medium",
-                  "type": "Spoofing",
-                  "description": "False report of a found dog leading to incorrect records about a lost dog.",
-                  "mitigation": "* Confirm that the details of a found dog match the details of a lost dog.\n* Ensure that the ID of lost dogs is not public information so that it cannot be submitted falsely.\n* Throttle reports so that people cannot mass report every dog ID as found.",
+                  "type": "Repudiation",
+                  "description": "A malicious actor may use a fake address when reporting a lost dog resulting in dog services being sent to the incorrect location and the malicious actor being untraceable.",
+                  "mitigation": "- Rely on some authentication method such as email or phone number to verify submissions and provide accountability\n",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 92,
+                  "number": 124,
                   "score": ""
                 }
               ]
@@ -3241,7 +3403,34 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c121a04d-7e91-4d21-9e9a-216cc1b03884",
+                  "title": "Fake acknowledgement",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "An attacker could send a fake acknowledgement that the dog has been picked up resulting in false information about the dog's status.",
+                  "mitigation": "- Use secure channels with authentication protocols such as two factor authentication and digital signatures",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 128,
+                  "score": ""
+                },
+                {
+                  "id": "8969ffaf-e4af-4f2b-ba30-31d2710570f8",
+                  "title": "Deny Receiving Information",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "The dog services could deny having received information about the found dog leading to the dog not being picked up.",
+                  "mitigation": "- Log communications\n- Use digital signatures\n- Implement confirmation procedures for messages",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 129,
+                  "score": ""
+                }
+              ]
             }
           },
           {
@@ -3258,8 +3447,8 @@
                 "text": "Owner"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -3273,15 +3462,42 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "f6f8e683-bab7-4c19-a6e7-275afa4adfe8",
+                  "title": "Denial of notification",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "The dog owner could deny having been notified about the found status of their dog.",
+                  "mitigation": "- Add confirmation of dog owners email or other communication medium during registration to ensure that they have access to it",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 125,
+                  "score": ""
+                },
+                {
+                  "id": "82343936-ddd8-45f7-a0ad-586af64f2061",
+                  "title": "Phishing",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "A malicious actor could send an email claiming to be the council encouraging the owner to click a malicious link.",
+                  "mitigation": "- Educate dog owners about phishing attacks in all official communications\n- Refrain from including links in official communications",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 126,
+                  "score": ""
+                }
+              ]
             }
           },
           {
             "position": {
-              "x": 820,
-              "y": 146
+              "x": 690,
+              "y": 260
             },
             "size": {
               "width": 120,
@@ -3326,7 +3542,7 @@
                   "severity": "Medium",
                   "type": "Tampering",
                   "description": "Possibility for injection attacks such as SQL injections to modify queries allowing for unauthorised data manipulation including removing/retrieving sensitive data.",
-                  "mitigation": "* Use input validation to ensure that harmful sql queries can't be submitted.\n* Regular audits to check for unauthorised changes.",
+                  "mitigation": "- Use input validation to ensure that harmful sql queries can't be submitted.\n- Regular audits to check for unauthorised changes.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 39,
@@ -3335,11 +3551,11 @@
                 {
                   "id": "37f83776-eb77-4079-b89f-cb7e2b85cf45",
                   "title": "Lack of Access Logs",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Repudiation",
                   "description": "If transactions to the database are not tracked properly users could deny accessing sensitive data such as the personal details of dog owners and addresses of members of the public.",
-                  "mitigation": "* Ensure comprehensive logging of queries and actions interacting with the database. ",
+                  "mitigation": "- Ensure comprehensive logging of queries and actions interacting with the database. ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 40,
@@ -3352,7 +3568,7 @@
                   "severity": "Medium",
                   "type": "Information disclosure",
                   "description": "If there are weak access controls to the database there could be unauthorised access to the sensitive information.",
-                  "mitigation": "* Enforce strict access controls\n* Encrypt sensitive data stored in the database",
+                  "mitigation": "- Enforce strict access controls\n- Encrypt sensitive data stored in the database",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 41,
@@ -3361,11 +3577,11 @@
                 {
                   "id": "52d8258f-af87-456e-91e8-182bf25ca3c7",
                   "title": "Request Flooding",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Denial of service",
                   "description": "Overwhelming the database with requests could cause it to become slow or unresponsive.",
-                  "mitigation": "* Implement rate limiting",
+                  "mitigation": "- Implement rate limiting",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 42,
@@ -3376,8 +3592,8 @@
           },
           {
             "position": {
-              "x": 860,
-              "y": 290
+              "x": 720,
+              "y": 370
             },
             "size": {
               "width": 112.5,
@@ -3385,7 +3601,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Database Read Write Acces"
+                "text": "Read / Write access"
               }
             },
             "visible": true,
@@ -3394,7 +3610,7 @@
             "id": "405391af-ee3e-41e3-a333-116bca851558",
             "data": {
               "type": "tm.Text",
-              "name": "Database Read Write Acces",
+              "name": "Read / Write access",
               "hasOpenThreats": false
             }
           },
@@ -3424,8 +3640,8 @@
           },
           {
             "position": {
-              "x": 682,
-              "y": 440
+              "x": 660,
+              "y": 510
             },
             "size": {
               "width": 120,
@@ -3433,7 +3649,7 @@
             },
             "attrs": {
               "text": {
-                "text": "Log Store"
+                "text": "Log Datastore"
               },
               "topLine": {
                 "stroke": "red",
@@ -3449,10 +3665,10 @@
             "visible": true,
             "shape": "store",
             "zIndex": 17,
-            "id": "d43f0d2b-6fa8-4f33-ad20-f3384b3cb68b",
+            "id": "ac61ae42-f568-4391-ab92-ea3034b3ed6e",
             "data": {
               "type": "tm.Store",
-              "name": "Log Store",
+              "name": "Log Datastore",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -3464,7 +3680,7 @@
               "storesInventory": false,
               "threats": [
                 {
-                  "id": "5789ab03-915d-4031-b533-bc7c9db2043b",
+                  "id": "96b1f4dd-13d2-4a87-9e40-2f8bf664323c",
                   "title": "Weak Log store password",
                   "status": "Open",
                   "severity": "Medium",
@@ -3473,20 +3689,20 @@
                   "mitigation": "Use a rotating password on the datastore that is safely secured\nMake the password sufficiently complex  with a diverse character set and size requirements",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 97,
+                  "number": 100,
                   "score": ""
                 },
                 {
-                  "id": "8c2dc758-8b2e-41e7-aea3-fe45e8fd5348",
+                  "id": "d0b424e7-d569-4bf7-877e-6a7035979015",
                   "title": "PII within the logging messages leading to a dataleak",
                   "status": "Open",
                   "severity": "Medium",
                   "type": "Information disclosure",
                   "description": "A malicious actor that has access to the datastore would be able to see the actions of all users and when they happened",
-                  "mitigation": "When creating logging messages only include necessary information about the action being recorded as well as abstracting information about the dog owner to anonymized identifiers such as UUID's. ",
+                  "mitigation": "When creating logging messages only include necessary information about the action being recorded as well as abstracting information about the dog owner to anonymized identifiers such as UUID's.",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 98,
+                  "number": 101,
                   "score": ""
                 }
               ]
@@ -3494,8 +3710,8 @@
           },
           {
             "position": {
-              "x": 569.5,
-              "y": 520
+              "x": 460,
+              "y": 540
             },
             "size": {
               "width": 112.5,
@@ -3509,7 +3725,7 @@
             "visible": true,
             "shape": "td-text-block",
             "zIndex": 18,
-            "id": "4b81f1f8-caab-4c82-90c5-d5dc68d25a6e",
+            "id": "7577cfe5-51af-40aa-b65b-90429c0eb69c",
             "data": {
               "type": "tm.Text",
               "name": "Log Access",
@@ -3522,6 +3738,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 99
+    "threatTop": 102
   }
 }
