@@ -1981,6 +1981,32 @@
                   "new": false,
                   "number": 56,
                   "score": ""
+                },
+                {
+                  "id": "fd39a1a7-e0d8-4e3b-8f65-e74402faacb4",
+                  "title": "Declare Dog Lost DOS",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could send a request to the server using a command injection that would bring the process down.",
+                  "mitigation": "- Sanitise and check all input field on forms\n- Secure all endpoints the user should not be able to access with authentication",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 105,
+                  "score": ""
+                },
+                {
+                  "id": "774c557d-ecd5-470c-966b-3f253539a3af",
+                  "title": "Deny declaring Dog Lost",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A malicious owner could claim to have not previously declared their dog lost.",
+                  "mitigation": "- Keep logs for all requests to declare a dog lost including the IP address and any other metadata that could identify a user",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 108,
+                  "score": ""
                 }
               ]
             }
@@ -2028,6 +2054,19 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 52,
+                  "score": ""
+                },
+                {
+                  "id": "5ce7afb4-a0dd-4085-b95f-e66417b2dd5c",
+                  "title": "User Claims to have Declared Dog Lost",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "A user could claim to have declared another user's dog lost in order to obtain information about that user.",
+                  "mitigation": "- Log details of all requests to declare a dog lost including IP address and any metadata\n- Keep records of all confirmation emails sent",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 104,
                   "score": ""
                 }
               ]
@@ -2098,7 +2137,34 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "2a64dc39-4cff-4553-8bcb-94a5d4ebd29a",
+                  "title": "Adversary in the Middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious user could listen on the connection and obtain user details.",
+                  "mitigation": "- The connection between the database and the web application should be over a private network\n- The connection should use TLS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 111,
+                  "score": ""
+                },
+                {
+                  "id": "d7bd15bd-f685-479a-843f-a65687b17ed6",
+                  "title": "Tampering with Request Sent Back to Application",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious attacker could modify the details sent from the database back to the web application to provide the user with incorrect information, malicious code or links.",
+                  "mitigation": "- The connection between the database and web application should be over a private network\n- The connection should be over TLS\n- The output of the database transaction should be checked before sending it to the user",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 112,
+                  "score": ""
+                }
+              ]
             },
             "id": "b934ff28-ce30-4c74-8368-3ead24b9c74a",
             "labels": [
@@ -2114,6 +2180,10 @@
               {
                 "x": 820,
                 "y": 210
+              },
+              {
+                "x": 780,
+                "y": 230
               }
             ]
           },
@@ -2273,6 +2343,32 @@
                   "new": false,
                   "number": 49,
                   "score": ""
+                },
+                {
+                  "id": "a411e66f-ff31-4dcd-8978-bfce28f0d5cb",
+                  "title": "Adversary in the Middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious user could intercept and listen on the connection to the database to obtain user details.",
+                  "mitigation": "- The connection to the database should be on a private network with no outside access\n- The connection to the database should use TLS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 113,
+                  "score": ""
+                },
+                {
+                  "id": "ada7acb5-88ba-4af8-a9a1-e1949be1945b",
+                  "title": "Database DDOS",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could send multiple malicious requests to the database to slow the system down and potentially bring the database down.",
+                  "mitigation": "- The connection to the database should be over a private network with no outside access\n- Inputs from user accessible endpoints should be sanitised before being sent to the database",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": ""
                 }
               ]
             },
@@ -2287,6 +2383,10 @@
               "cell": "4b644368-27f7-487a-ad86-30314074f5fe"
             },
             "vertices": [
+              {
+                "x": 720,
+                "y": 110
+              },
               {
                 "x": 740,
                 "y": 100
@@ -2334,6 +2434,19 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 50,
+                  "score": ""
+                },
+                {
+                  "id": "bf2aff48-d870-46d6-8f63-5ea476cff599",
+                  "title": "Adversary in the Middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could listen on the connection to obtain the status of the dog and its tag ID.",
+                  "mitigation": "- Use TLS and HTTPS to prevent malicious actors from intercepting and tampering with the confirmation email.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 117,
                   "score": ""
                 }
               ]
@@ -2414,6 +2527,19 @@
                   "new": false,
                   "number": 45,
                   "score": ""
+                },
+                {
+                  "id": "e8509072-985c-42c8-8fba-a6d85312fe04",
+                  "title": "Modify Request Details",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker could intercept the request and modify the details of the dog in order to declare another user's dog lost, or send a malicious request to the server.",
+                  "mitigation": "- Use TLS and HTTPS to protect the connection from attackers.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 115,
+                  "score": ""
                 }
               ]
             },
@@ -2479,6 +2605,19 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 55,
+                  "score": ""
+                },
+                {
+                  "id": "a7c17fb2-97b5-4983-8648-0db0553bd9d2",
+                  "title": "Adversary in the Middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "A malicious actor could listen on the connection to obtain the status of the dog and its tag ID.",
+                  "mitigation": "- Use HTTPs and TLS to safeguard the connection against attackers",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 116,
                   "score": ""
                 }
               ]
@@ -2581,6 +2720,32 @@
                   "new": false,
                   "number": 43,
                   "score": ""
+                },
+                {
+                  "id": "659b01e1-6ddc-4ac5-8a6f-cb2871fff278",
+                  "title": "SQL Injection",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious user could encode an SQL query in their request to the server to corrupt the database.",
+                  "mitigation": "- Sanitise inputs before sending them to the database",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 109,
+                  "score": ""
+                },
+                {
+                  "id": "dc381114-36f2-4363-8082-ca80096c6daf",
+                  "title": "Database DOS",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious attacker could encode complex SQL queries or open many connections with the database to bring the system down.",
+                  "mitigation": "- Check and sanitise queries before sending them to the database",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 110,
+                  "score": ""
                 }
               ]
             }
@@ -2623,11 +2788,13 @@
                 "text": "Log Store"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2641,7 +2808,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
@@ -3522,6 +3689,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 99
+    "threatTop": 117
   }
 }
