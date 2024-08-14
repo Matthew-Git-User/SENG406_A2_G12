@@ -845,95 +845,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Dog Renewal Details",
-              "description": "Old Tag + New Address",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "099f74a6-324f-4cc9-b148-1c889e78b525",
-                  "title": "Endpoint Denial of Service",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "A malicious user could repeatedly send requests over this endpoint to exhaust the resources available to the  process",
-                  "mitigation": "Throttle requests from any IP",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 73,
-                  "score": ""
-                },
-                {
-                  "id": "866f21ca-8b46-4abc-9489-44ec3324bc95",
-                  "title": "Adversary in the middle",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Knowing a family has a dog with tag ID X, a malicious user could monitor inbound requests to renew a dog tag to maintain an up to date location for the dogs family",
-                  "mitigation": "Have all requests for the service be done over HTTPS for encryption",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 74,
-                  "score": ""
-                },
-                {
-                  "id": "12a8a148-312d-47d8-b021-792dd0306747",
-                  "title": "Data Manipulation",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "A malicious actor could monitor requests for renewing and modify the delivery address to have the tag delivered to themselves instead of the dog owner",
-                  "mitigation": "Encrypt requests using HTTPS",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 75,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "0739a76a-16da-46e5-929e-567ef71b2e77",
-            "labels": [
-              "Dog Renewal Details"
-            ],
-            "source": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
-            },
-            "target": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "vertices": [
-              {
-                "x": 270,
-                "y": 100
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
@@ -1011,6 +922,94 @@
               {
                 "x": 530,
                 "y": 60
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Dog Renewal Details",
+              "description": "Old Tag + New Address",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "099f74a6-324f-4cc9-b148-1c889e78b525",
+                  "title": "Endpoint Denial of Service",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "A malicious user could repeatedly send requests over this endpoint to exhaust the resources available to the  process",
+                  "mitigation": "Throttle requests from any IP",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 73,
+                  "score": ""
+                },
+                {
+                  "id": "866f21ca-8b46-4abc-9489-44ec3324bc95",
+                  "title": "Adversary in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Knowing a family has a dog with tag ID X, a malicious user could monitor inbound requests to renew a dog tag to maintain an up to date location for the dogs family",
+                  "mitigation": "Have all requests for the service be done over HTTPS for encryption",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 74,
+                  "score": ""
+                },
+                {
+                  "id": "12a8a148-312d-47d8-b021-792dd0306747",
+                  "title": "Data Manipulation",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "A malicious actor could monitor requests for renewing and modify the delivery address to have the tag delivered to themselves instead of the dog owner",
+                  "mitigation": "Encrypt requests using HTTPS",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 75,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "0739a76a-16da-46e5-929e-567ef71b2e77",
+            "labels": [
+              "Dog Renewal Details"
+            ],
+            "source": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "target": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "vertices": [
+              {
+                "x": 270,
+                "y": 100
               }
             ]
           },
@@ -1428,58 +1427,6 @@
                   "new": false,
                   "number": 33,
                   "score": ""
-                },
-                {
-                  "id": "eb0fbbc9-4f73-4867-8a01-60a25e481f55",
-                  "title": "Lack of logs",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Repudiation",
-                  "description": "A malicious could claim to not have terminated a dog. Without logs it would not be possible to determine the truth.",
-                  "mitigation": "Log requests and where they came from.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 100,
-                  "score": ""
-                },
-                {
-                  "id": "b11f042b-57f3-4679-a30c-a30327465f8b",
-                  "title": "Injecting into process",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "A malicious user could inject code directly into this process. This code could alter the behaviour of the process.",
-                  "mitigation": "Validate user inputs to avoid injection.\nUtilize least privilege principle.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 101,
-                  "score": ""
-                },
-                {
-                  "id": "542bab9f-c7c7-4695-ba53-7b6bf3a7e03c",
-                  "title": "DoS",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "Repeated calls to this process from a botnet or other high demand could slow the process for all users.",
-                  "mitigation": "Utilize a CDN.\nLimit the complexity of the process.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 102,
-                  "score": ""
-                },
-                {
-                  "id": "3f08c1fc-912e-4708-a9b6-aa341c1c97d0",
-                  "title": "Man in the middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Spoofing",
-                  "description": "It could be possible for a third party to mimic the behaviour of this termination process and have unaware users submit personal data to it. ",
-                  "mitigation": "Monitor DNS traffic.\nEncourage users to use a VPN when using an insecure website.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 103,
-                  "score": ""
                 }
               ]
             }
@@ -1662,6 +1609,68 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
+              "name": "Confirmation email",
+              "description": "Email confirmation that the dog is not registered anymore, and that the tag can be destroyed.\nAlso contains a link to the registration process on the Council’s application in case the dog’s registration was terminated by mistake",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "e37f8f61-3001-4c3b-9d27-857157490c9f",
+                  "title": "Send invalid link",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "By tampering with the email a malicious actor could change the link to the registration process to a malicious link that infects the user.",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
+            "labels": [
+              "Confirmation email"
+            ],
+            "source": {
+              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
+            },
+            "target": {
+              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
+            },
+            "vertices": [
+              {
+                "x": 350,
+                "y": 160
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
               "name": "User and dog details",
               "description": "Users email address, the dog tag ID, and the dog’s name",
               "outOfScope": false,
@@ -1737,68 +1746,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Confirmation email",
-              "description": "Email confirmation that the dog is not registered anymore, and that the tag can be destroyed.\nAlso contains a link to the registration process on the Council’s application in case the dog’s registration was terminated by mistake",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "e37f8f61-3001-4c3b-9d27-857157490c9f",
-                  "title": "Send invalid link",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "By tampering with the email a malicious actor could change the link to the registration process to a malicious link that infects the user.",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 37,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "2de96932-9e75-4e50-93b5-3f1cf99635c6",
-            "labels": [
-              "Confirmation email"
-            ],
-            "source": {
-              "cell": "bd895f60-1caa-4073-8fb9-733fa69ad936"
-            },
-            "target": {
-              "cell": "566fd167-76e3-40d0-b64f-6143d909ded0"
-            },
-            "vertices": [
-              {
-                "x": 350,
-                "y": 160
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Termination details",
               "description": "",
               "outOfScope": false,
@@ -1820,19 +1767,6 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 34,
-                  "score": ""
-                },
-                {
-                  "id": "4b65578a-77a7-4ae6-a5a2-b6bdeb44f68f",
-                  "title": "Adversary in the middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "A malicious actor could monitor the network traffic going to the database. This could then be used to identify the data in the database.",
-                  "mitigation": "Encrypt data going from the termination process to the database.\nApply network monitoring principles.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 104,
                   "score": ""
                 }
               ]
@@ -2046,32 +1980,6 @@
                   "new": false,
                   "number": 56,
                   "score": ""
-                },
-                {
-                  "id": "fd39a1a7-e0d8-4e3b-8f65-e74402faacb4",
-                  "title": "Declare Dog Lost DOS",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "A malicious user could send a request to the server using a command injection that would bring the process down.",
-                  "mitigation": "- Sanitise and check all input field on forms\n- Secure all endpoints the user should not be able to access with authentication",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 105,
-                  "score": ""
-                },
-                {
-                  "id": "774c557d-ecd5-470c-966b-3f253539a3af",
-                  "title": "Deny declaring Dog Lost",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Repudiation",
-                  "description": "A malicious owner could claim to have not previously declared their dog lost.",
-                  "mitigation": "- Keep logs for all requests to declare a dog lost including the IP address and any other metadata that could identify a user",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 108,
-                  "score": ""
                 }
               ]
             }
@@ -2119,19 +2027,6 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 52,
-                  "score": ""
-                },
-                {
-                  "id": "5ce7afb4-a0dd-4085-b95f-e66417b2dd5c",
-                  "title": "User Claims to have Declared Dog Lost",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Repudiation",
-                  "description": "A user could claim to have declared another user's dog lost in order to obtain information about that user.",
-                  "mitigation": "- Log details of all requests to declare a dog lost including IP address and any metadata\n- Keep records of all confirmation emails sent",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 104,
                   "score": ""
                 }
               ]
@@ -2202,34 +2097,7 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [
-                {
-                  "id": "2a64dc39-4cff-4553-8bcb-94a5d4ebd29a",
-                  "title": "Adversary in the Middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "A malicious user could listen on the connection and obtain user details.",
-                  "mitigation": "- The connection between the database and the web application should be over a private network\n- The connection should use TLS",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 111,
-                  "score": ""
-                },
-                {
-                  "id": "d7bd15bd-f685-479a-843f-a65687b17ed6",
-                  "title": "Tampering with Request Sent Back to Application",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "A malicious attacker could modify the details sent from the database back to the web application to provide the user with incorrect information, malicious code or links.",
-                  "mitigation": "- The connection between the database and web application should be over a private network\n- The connection should be over TLS\n- The output of the database transaction should be checked before sending it to the user",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 112,
-                  "score": ""
-                }
-              ]
+              "threats": []
             },
             "id": "b934ff28-ce30-4c74-8368-3ead24b9c74a",
             "labels": [
@@ -2245,10 +2113,6 @@
               {
                 "x": 820,
                 "y": 210
-              },
-              {
-                "x": 780,
-                "y": 230
               }
             ]
           },
@@ -2408,32 +2272,6 @@
                   "new": false,
                   "number": 49,
                   "score": ""
-                },
-                {
-                  "id": "a411e66f-ff31-4dcd-8978-bfce28f0d5cb",
-                  "title": "Adversary in the Middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "A malicious user could intercept and listen on the connection to the database to obtain user details.",
-                  "mitigation": "- The connection to the database should be on a private network with no outside access\n- The connection to the database should use TLS",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 113,
-                  "score": ""
-                },
-                {
-                  "id": "ada7acb5-88ba-4af8-a9a1-e1949be1945b",
-                  "title": "Database DDOS",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "A malicious user could send multiple malicious requests to the database to slow the system down and potentially bring the database down.",
-                  "mitigation": "- The connection to the database should be over a private network with no outside access\n- Inputs from user accessible endpoints should be sanitised before being sent to the database",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 114,
-                  "score": ""
                 }
               ]
             },
@@ -2448,10 +2286,6 @@
               "cell": "4b644368-27f7-487a-ad86-30314074f5fe"
             },
             "vertices": [
-              {
-                "x": 720,
-                "y": 110
-              },
               {
                 "x": 740,
                 "y": 100
@@ -2499,19 +2333,6 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 50,
-                  "score": ""
-                },
-                {
-                  "id": "bf2aff48-d870-46d6-8f63-5ea476cff599",
-                  "title": "Adversary in the Middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "A malicious actor could listen on the connection to obtain the status of the dog and its tag ID.",
-                  "mitigation": "- Use TLS and HTTPS to prevent malicious actors from intercepting and tampering with the confirmation email.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 117,
                   "score": ""
                 }
               ]
@@ -2592,19 +2413,6 @@
                   "new": false,
                   "number": 45,
                   "score": ""
-                },
-                {
-                  "id": "e8509072-985c-42c8-8fba-a6d85312fe04",
-                  "title": "Modify Request Details",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "An attacker could intercept the request and modify the details of the dog in order to declare another user's dog lost, or send a malicious request to the server.",
-                  "mitigation": "- Use TLS and HTTPS to protect the connection from attackers.",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 115,
-                  "score": ""
                 }
               ]
             },
@@ -2670,19 +2478,6 @@
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 55,
-                  "score": ""
-                },
-                {
-                  "id": "a7c17fb2-97b5-4983-8648-0db0553bd9d2",
-                  "title": "Adversary in the Middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "A malicious actor could listen on the connection to obtain the status of the dog and its tag ID.",
-                  "mitigation": "- Use HTTPs and TLS to safeguard the connection against attackers",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 116,
                   "score": ""
                 }
               ]
@@ -2785,32 +2580,6 @@
                   "new": false,
                   "number": 43,
                   "score": ""
-                },
-                {
-                  "id": "659b01e1-6ddc-4ac5-8a6f-cb2871fff278",
-                  "title": "SQL Injection",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "A malicious user could encode an SQL query in their request to the server to corrupt the database.",
-                  "mitigation": "- Sanitise inputs before sending them to the database",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 109,
-                  "score": ""
-                },
-                {
-                  "id": "dc381114-36f2-4363-8082-ca80096c6daf",
-                  "title": "Database DOS",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "A malicious attacker could encode complex SQL queries or open many connections with the database to bring the system down.",
-                  "mitigation": "- Check and sanitise queries before sending them to the database",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 110,
-                  "score": ""
                 }
               ]
             }
@@ -2853,13 +2622,11 @@
                 "text": "Log Store"
               },
               "topLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -2873,7 +2640,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
@@ -3970,6 +3737,6 @@
     ],
     "diagramTop": 5,
     "reviewer": "",
-    "threatTop": 117
+    "threatTop": 102
   }
 }
